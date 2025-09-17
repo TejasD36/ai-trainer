@@ -1,0 +1,26 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'ai_trainer.notifier.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$aiTrainerNotifierHash() => r'c42a66115c88f6b3a37bd9b34b552149e84a0167';
+
+/// See also [AiTrainerNotifier].
+@ProviderFor(AiTrainerNotifier)
+final aiTrainerNotifierProvider =
+    AsyncNotifierProvider<AiTrainerNotifier, TrainingPlan?>.internal(
+      AiTrainerNotifier.new,
+      name: r'aiTrainerNotifierProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$aiTrainerNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$AiTrainerNotifier = AsyncNotifier<TrainingPlan?>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

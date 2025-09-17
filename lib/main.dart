@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'home.screen.dart';
+import 'core.dart';
+import 'ui/screens/enter_today_exercise.screen.dart';
 
 void main() {
   runApp(ProviderScope(child: const MyApp()));
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'AI Trainer',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)),
-      home: const HomeScreen(title: 'Flutter Tutorials'),
+      home: EnterTodayExercise(),
     );
   }
 }
