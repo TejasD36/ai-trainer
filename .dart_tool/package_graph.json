@@ -12,6 +12,7 @@
         "flutter",
         "flutter_riverpod",
         "freezed_annotation",
+        "google_generative_ai",
         "json_annotation",
         "riverpod_annotation"
       ],
@@ -207,21 +208,17 @@
       ]
     },
     {
-      "name": "flutter_riverpod",
-      "version": "2.6.1",
-      "dependencies": [
-        "collection",
-        "flutter",
-        "meta",
-        "riverpod",
-        "state_notifier"
-      ]
-    },
-    {
       "name": "json_annotation",
       "version": "4.9.0",
       "dependencies": [
         "meta"
+      ]
+    },
+    {
+      "name": "google_generative_ai",
+      "version": "0.4.7",
+      "dependencies": [
+        "http"
       ]
     },
     {
@@ -231,6 +228,17 @@
         "collection",
         "json_annotation",
         "meta"
+      ]
+    },
+    {
+      "name": "flutter_riverpod",
+      "version": "2.6.1",
+      "dependencies": [
+        "collection",
+        "flutter",
+        "meta",
+        "riverpod",
+        "state_notifier"
       ]
     },
     {

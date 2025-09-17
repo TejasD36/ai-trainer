@@ -13,10 +13,10 @@ class AiTrainerNotifier extends _$AiTrainerNotifier {
     return null;
   }
 
-  Future<void> generate(String? userInput) async {
+  Future<void> generate(String userInput) async {
     try {
       state = AsyncLoading();
-      final result = await _aiService.generateMockData();
+      final result = await _aiService.generateWithGemini(userInput);
       state = AsyncData(result);
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);

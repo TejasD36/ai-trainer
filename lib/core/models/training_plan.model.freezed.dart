@@ -11,30 +11,33 @@ part of 'training_plan.model.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$TrainingPlan {
 
- String get title; DateTime get startDate; List<PlanItem> get plans;
+ String get title; List<PlanItem> get plans;
 /// Create a copy of TrainingPlan
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $TrainingPlanCopyWith<TrainingPlan> get copyWith => _$TrainingPlanCopyWithImpl<TrainingPlan>(this as TrainingPlan, _$identity);
 
+  /// Serializes this TrainingPlan to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrainingPlan&&(identical(other.title, title) || other.title == title)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&const DeepCollectionEquality().equals(other.plans, plans));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrainingPlan&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.plans, plans));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,startDate,const DeepCollectionEquality().hash(plans));
+int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(plans));
 
 @override
 String toString() {
-  return 'TrainingPlan(title: $title, startDate: $startDate, plans: $plans)';
+  return 'TrainingPlan(title: $title, plans: $plans)';
 }
 
 
@@ -45,7 +48,7 @@ abstract mixin class $TrainingPlanCopyWith<$Res>  {
   factory $TrainingPlanCopyWith(TrainingPlan value, $Res Function(TrainingPlan) _then) = _$TrainingPlanCopyWithImpl;
 @useResult
 $Res call({
- String title, DateTime startDate, List<PlanItem> plans
+ String title, List<PlanItem> plans
 });
 
 
@@ -62,11 +65,10 @@ class _$TrainingPlanCopyWithImpl<$Res>
 
 /// Create a copy of TrainingPlan
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? startDate = null,Object? plans = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? plans = null,}) {
   return _then(_self.copyWith(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,startDate: null == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
-as DateTime,plans: null == plans ? _self.plans : plans // ignore: cast_nullable_to_non_nullable
+as String,plans: null == plans ? _self.plans : plans // ignore: cast_nullable_to_non_nullable
 as List<PlanItem>,
   ));
 }
@@ -149,10 +151,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  DateTime startDate,  List<PlanItem> plans)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  List<PlanItem> plans)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TrainingPlan() when $default != null:
-return $default(_that.title,_that.startDate,_that.plans);case _:
+return $default(_that.title,_that.plans);case _:
   return orElse();
 
 }
@@ -170,10 +172,10 @@ return $default(_that.title,_that.startDate,_that.plans);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  DateTime startDate,  List<PlanItem> plans)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  List<PlanItem> plans)  $default,) {final _that = this;
 switch (_that) {
 case _TrainingPlan():
-return $default(_that.title,_that.startDate,_that.plans);}
+return $default(_that.title,_that.plans);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -187,10 +189,10 @@ return $default(_that.title,_that.startDate,_that.plans);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  DateTime startDate,  List<PlanItem> plans)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  List<PlanItem> plans)?  $default,) {final _that = this;
 switch (_that) {
 case _TrainingPlan() when $default != null:
-return $default(_that.title,_that.startDate,_that.plans);case _:
+return $default(_that.title,_that.plans);case _:
   return null;
 
 }
@@ -199,14 +201,13 @@ return $default(_that.title,_that.startDate,_that.plans);case _:
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _TrainingPlan implements TrainingPlan {
-  const _TrainingPlan({required this.title, required this.startDate, required final  List<PlanItem> plans}): _plans = plans;
-  
+  const _TrainingPlan({required this.title, required final  List<PlanItem> plans}): _plans = plans;
+  factory _TrainingPlan.fromJson(Map<String, dynamic> json) => _$TrainingPlanFromJson(json);
 
 @override final  String title;
-@override final  DateTime startDate;
  final  List<PlanItem> _plans;
 @override List<PlanItem> get plans {
   if (_plans is EqualUnmodifiableListView) return _plans;
@@ -221,20 +222,23 @@ class _TrainingPlan implements TrainingPlan {
 @pragma('vm:prefer-inline')
 _$TrainingPlanCopyWith<_TrainingPlan> get copyWith => __$TrainingPlanCopyWithImpl<_TrainingPlan>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$TrainingPlanToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrainingPlan&&(identical(other.title, title) || other.title == title)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&const DeepCollectionEquality().equals(other._plans, _plans));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrainingPlan&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._plans, _plans));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,startDate,const DeepCollectionEquality().hash(_plans));
+int get hashCode => Object.hash(runtimeType,title,const DeepCollectionEquality().hash(_plans));
 
 @override
 String toString() {
-  return 'TrainingPlan(title: $title, startDate: $startDate, plans: $plans)';
+  return 'TrainingPlan(title: $title, plans: $plans)';
 }
 
 
@@ -245,7 +249,7 @@ abstract mixin class _$TrainingPlanCopyWith<$Res> implements $TrainingPlanCopyWi
   factory _$TrainingPlanCopyWith(_TrainingPlan value, $Res Function(_TrainingPlan) _then) = __$TrainingPlanCopyWithImpl;
 @override @useResult
 $Res call({
- String title, DateTime startDate, List<PlanItem> plans
+ String title, List<PlanItem> plans
 });
 
 
@@ -262,17 +266,17 @@ class __$TrainingPlanCopyWithImpl<$Res>
 
 /// Create a copy of TrainingPlan
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? startDate = null,Object? plans = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? plans = null,}) {
   return _then(_TrainingPlan(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,startDate: null == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
-as DateTime,plans: null == plans ? _self._plans : plans // ignore: cast_nullable_to_non_nullable
+as String,plans: null == plans ? _self._plans : plans // ignore: cast_nullable_to_non_nullable
 as List<PlanItem>,
   ));
 }
 
 
 }
+
 
 /// @nodoc
 mixin _$PlanItem {
@@ -284,6 +288,8 @@ mixin _$PlanItem {
 @pragma('vm:prefer-inline')
 $PlanItemCopyWith<PlanItem> get copyWith => _$PlanItemCopyWithImpl<PlanItem>(this as PlanItem, _$identity);
 
+  /// Serializes this PlanItem to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -291,7 +297,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is PlanItem&&(identical(other.exercise, exercise) || other.exercise == exercise)&&(identical(other.sets, sets) || other.sets == sets)&&const DeepCollectionEquality().equals(other.reps, reps)&&const DeepCollectionEquality().equals(other.weights, weights));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,exercise,sets,const DeepCollectionEquality().hash(reps),const DeepCollectionEquality().hash(weights));
 
@@ -463,11 +469,11 @@ return $default(_that.exercise,_that.sets,_that.reps,_that.weights);case _:
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _PlanItem implements PlanItem {
   const _PlanItem({required this.exercise, required this.sets, required final  List<num> reps, required final  List<num> weights}): _reps = reps,_weights = weights;
-  
+  factory _PlanItem.fromJson(Map<String, dynamic> json) => _$PlanItemFromJson(json);
 
 @override final  String exercise;
 @override final  num sets;
@@ -492,14 +498,17 @@ class _PlanItem implements PlanItem {
 @pragma('vm:prefer-inline')
 _$PlanItemCopyWith<_PlanItem> get copyWith => __$PlanItemCopyWithImpl<_PlanItem>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$PlanItemToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlanItem&&(identical(other.exercise, exercise) || other.exercise == exercise)&&(identical(other.sets, sets) || other.sets == sets)&&const DeepCollectionEquality().equals(other._reps, _reps)&&const DeepCollectionEquality().equals(other._weights, _weights));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode => Object.hash(runtimeType,exercise,sets,const DeepCollectionEquality().hash(_reps),const DeepCollectionEquality().hash(_weights));
 

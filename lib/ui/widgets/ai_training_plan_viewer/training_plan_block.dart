@@ -26,21 +26,21 @@ class TrainingPlanBlock extends StatelessWidget {
           Row(
             spacing: 5,
             children: [
-              Text("${plan.sets}", style: textTheme.displaySmall),
+              Text("${plan.sets}", style: textTheme.titleLarge),
               Text("SETS"),
             ],
           ),
           Row(
             spacing: 5,
             children: [
-              Text(plan.reps.join(" | "), style: textTheme.displaySmall),
+              Text(plan.reps.join(" | "), style: textTheme.titleLarge),
               Text("REPS"),
             ],
           ),
           Row(
             spacing: 5,
             children: [
-              Text(plan.weights.join(" | "), style: textTheme.displaySmall),
+              Text(plan.weights.join(" | "), style: textTheme.titleLarge),
               Text("WEIGHTS"),
             ],
           ),

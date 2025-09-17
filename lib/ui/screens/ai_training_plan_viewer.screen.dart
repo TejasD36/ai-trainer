@@ -12,6 +12,7 @@ class AiTrainingPlanViewer extends ConsumerWidget {
     final theme = Theme.of(context);
     final state = ref.watch(aiTrainerNotifierProvider);
     final val = state.value;
+    final date = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         title: Text("AI Trainer", style: theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold)),
@@ -37,14 +38,11 @@ class AiTrainingPlanViewer extends ConsumerWidget {
                   child: ListTile(
                     leading: Icon(Icons.fitness_center, color: theme.primaryColor),
                     title: Text("${val.title} (${val.plans.length} exercises)", style: TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Text(
-                      "Date: ${val.startDate.day} / ${val.startDate.month} / ${val.startDate.year}",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    subtitle: Text("Date: ${date.day} / ${date.month} / ${date.year}", style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: val.plans.length,
