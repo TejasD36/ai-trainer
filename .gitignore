@@ -26,7 +26,9 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins-dependencies
 .pub-cache/
+
 .pub/
+pubspec.lock
 /build/
 /coverage/
 
@@ -41,7 +43,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# FVM Version Cache
 .fvm/
 .env
 /lib/core/config/env.g.dart

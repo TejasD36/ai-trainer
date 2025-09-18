@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  dart_openai: ^5.1.0
   envied: ^1.1.1
   flutter_riverpod: ^2.6.1
   freezed_annotation: ^3.0.0
